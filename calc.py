@@ -1,3 +1,6 @@
 def sumar(numeros):
-    return 0
-
+    if numeros == "":
+        return 0
+    else:
+        return int(numeros)
+ 
