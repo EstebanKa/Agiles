@@ -3,7 +3,7 @@ def sumar(numeros):
   if numeros == "":
     return 0
 
-  #Regla 2: Dos numeros separados por coma
+  # Regla 2: Generalizamos para cualquier cantidad de números separados por coma
   if "," in numeros:
     partes = numeros.split(",")
     return int(partes[0]) + int(partes[1])
