@@ -2,19 +2,11 @@ def sumar(numeros):
   #Regla 1: String vacio
   if numeros == "":
     return 0
-
-  #TRAMPA VERDE para la Funcionalidad 2
-  if numeros == "1,2,3":
-    return 6
-
-  #TRAMPA VERDE 2 para la Funcionalidad 2
-  if numeros == "1,2,3,5,8,13":
-        return 32
   
-  # Regla 2: Generalizamos para cualquier cantidad de números separados por coma
+  # Regla 2 y Nueva Funcionalidad: N números separados por coma
   if "," in numeros:
     partes = numeros.split(",")
-    return int(partes[0]) + int(partes[1])
+    return sum(int(numero) for numero in partes)
 
   #Regla 3: Un solo número
   return int(numeros)
