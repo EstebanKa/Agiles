@@ -2,7 +2,7 @@ def sumar(numeros):
   #Regla 1: String vacio
   if numeros == "":
     return 0
-
+  
   # Regla 2: Generalizamos para cualquier cantidad de números separados por coma
   if "," in numeros:
     partes = numeros.split(",")
@@ -10,4 +10,5 @@ def sumar(numeros):
 
   #Regla 3: Un solo número
   return int(numeros)
+
  

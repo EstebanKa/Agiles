@@ -8,3 +8,6 @@ def test_devolucion_mismo_numero():
 
 def test_suma_dos_numeros_separados_por_coma():
     assert sumar("1,2") == 3
+
+def test_suma_multiples_numeros_separados_por_coma():
+    assert sumar("1,2,3") == 6
