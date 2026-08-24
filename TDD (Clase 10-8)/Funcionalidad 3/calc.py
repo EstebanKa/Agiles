@@ -3,7 +3,8 @@ def sumar(numeros):
   if numeros == "":
     return 0
   
-  # Regla 2 y Nueva Funcionalidad: N números separados por coma
+  # Regla 3 y Nueva Funcionalidad: Admite saltos de linea
+  numeros = numeros.replace("\n", ",")
   if "," in numeros:
     partes = numeros.split(",")
     return sum(int(numero) for numero in partes)
