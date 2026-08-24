@@ -6,11 +6,13 @@ def test_rover_initialization():
     assert rover.y == 0
     assert rover.direction == 'N'
 
-def test_rover_direccionL():
-    rover = Rover(1, 0, 'L')
-    assert rover.orientacion() == 'L'
+def test_rover_gira_izquierda():
+    rover = Rover(1, 0, 'N')
+    rover.girar_izquierda()
+    assert rover.orientacion() == 'O'
 
-def test_rover_direccionR():
-    rover = Rover(1, 0, 'R')
-    assert rover.orientacion() == 'R'
+def test_rover_gira_derecha():
+    rover = Rover(1, 0, 'N')
+    rover.girar_derecha()
+    assert rover.orientacion() == 'E'
 

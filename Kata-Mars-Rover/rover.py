@@ -12,3 +12,11 @@ class Rover:
 
     def orientacion(self):
         return self.direction
+
+    def girar_izquierda(self):
+        indice = self.direcciones_validas.index(self.direction)
+        self.direction = self.direcciones_validas[(indice - 1) % 4]
+
+    def girar_derecha(self):
+        indice = self.direcciones_validas.index(self.direction)
+        self.direction = self.direcciones_validas[(indice + 1) % 4]
