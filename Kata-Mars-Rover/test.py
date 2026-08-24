@@ -16,3 +16,7 @@ def test_rover_gira_derecha():
     rover.girar_derecha()
     assert rover.orientacion() == 'E'
 
+def test_rover_mueve_hacia_adelante():
+    rover = Rover(1, 0, 'N')
+    rover.mover_adelante()
+    assert rover.posicion() == (1, 1)
