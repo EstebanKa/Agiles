@@ -4,10 +4,11 @@ class Rover:
     DELTAS = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # mismo orden que direcciones_validas
 
     #Paso 1: El rover informa su posición y orientación iniciales
-    def __init__(self, x, y, direction):
+    def __init__(self, x, y, direction, obstaculos=None):
         self.x = x
         self.y = y
         self.direction = direction
+        self.obstaculos = obstaculos or []
 
     # Paso 2: Gira a la izquierda. Gira a la derecha
     def posicion(self):
@@ -30,7 +31,10 @@ class Rover:
         self.x += dx
         self.y += dy
 
+    #Cambio requerimiento: Salta dos celdas hacia adelante, pero si hay un obstáculo en la celda de destino, no se mueve
     def saltar(self):
         dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
-        self.x += dx * 2
-        self.y += dy * 2
+        destino = (self.x + dx * 2, self.y + dy * 2)
+        if destino in self.obstaculos:
+            return  # choca, no se mueve
+        self.x, self.y = destino
