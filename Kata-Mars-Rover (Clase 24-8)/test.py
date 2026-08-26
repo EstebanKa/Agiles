@@ -25,3 +25,8 @@ def test_rover_salta_hacia_el_norte():
     rover = Rover(1, 0, 'N')
     rover.saltar()
     assert rover.posicion() == (1, 2)
+
+def test_rover_no_salta_si_hay_obstaculo():
+    rover = Rover(1, 0, 'N', obstaculos=[(1, 2)])
+    rover.saltar()
+    assert rover.posicion() == (1, 0)  # no se movió, "chocó"
