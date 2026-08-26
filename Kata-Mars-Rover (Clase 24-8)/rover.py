@@ -1,12 +1,15 @@
 class Rover:
 
     direcciones_validas = ['N', 'E', 'S', 'O']
-    
+    DELTAS = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # mismo orden que direcciones_validas
+
+    #Paso 1: El rover informa su posición y orientación iniciales
     def __init__(self, x, y, direction):
         self.x = x
         self.y = y
         self.direction = direction
 
+    # Paso 2: Gira a la izquierda. Gira a la derecha
     def posicion(self):
         return (self.x, self.y)
 
@@ -21,12 +24,8 @@ class Rover:
         indice = self.direcciones_validas.index(self.direction)
         self.direction = self.direcciones_validas[(indice + 1) % 4]
 
+    # Paso 3: Avanza una celda
     def mover_adelante(self):
-        if self.direction == 'N':
-            self.y += 1
-        elif self.direction == 'S':
-            self.y -= 1
-        elif self.direction == 'E':
-            self.x += 1
-        elif self.direction == 'O':
-            self.x -= 1
+        dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
+        self.x += dx
+        self.y += dy
