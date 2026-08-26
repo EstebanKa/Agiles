@@ -25,16 +25,16 @@ class Rover:
         indice = self.direcciones_validas.index(self.direction)
         self.direction = self.direcciones_validas[(indice + 1) % 4]
 
-    # Paso 3: Avanza una celda
-    def mover_adelante(self):
+    #Paso 3 con cambio de requerimiento adaptado: Mueve hacia adelante y salta hacia adelante, pero no puede saltar si hay un obstáculo en la posición de destino.
+    def _mover(self, pasos):
         dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
-        self.x += dx
-        self.y += dy
-
-    #Cambio requerimiento: Salta dos celdas hacia adelante, pero si hay un obstáculo en la celda de destino, no se mueve
-    def saltar(self):
-        dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
-        destino = (self.x + dx * 2, self.y + dy * 2)
+        destino = (self.x + dx * pasos, self.y + dy * pasos)
         if destino in self.obstaculos:
-            return  # choca, no se mueve
+            return
         self.x, self.y = destino
+
+    def mover_adelante(self):
+        self._mover(1)
+
+    def saltar(self):
+        self._mover(2)
