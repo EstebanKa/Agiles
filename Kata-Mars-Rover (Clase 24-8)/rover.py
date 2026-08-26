@@ -29,3 +29,8 @@ class Rover:
         dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
         self.x += dx
         self.y += dy
+
+    def saltar(self):
+        dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
+        self.x += dx * 2
+        self.y += dy * 2
