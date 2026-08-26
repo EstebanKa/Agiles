@@ -38,3 +38,10 @@ class Rover:
 
     def saltar(self):
         self._mover(2)
+
+    def retroceder(self):
+        dx, dy = self.DELTAS[self.direcciones_validas.index(self.direction)]
+        destino = (self.x - dx, self.y - dy)
+        if destino in self.obstaculos:
+            return
+        self.x, self.y = destino
