@@ -20,3 +20,8 @@ def test_rover_mueve_hacia_adelante():
     rover = Rover(1, 0, 'N')
     rover.mover_adelante()
     assert rover.posicion() == (1, 1)
+
+def test_rover_salta_hacia_el_norte():
+    rover = Rover(1, 0, 'N')
+    rover.saltar()
+    assert rover.posicion() == (1, 2)
