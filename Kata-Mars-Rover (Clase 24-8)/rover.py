@@ -44,13 +44,14 @@ class Rover:
         self._mover(-1)
 
     def ejecutar_comandos(self, comandos):
+        acciones = {
+            'F': self.mover_adelante,
+            'B': self.retroceder,
+            'L': self.girar_izquierda,
+            'R': self.girar_derecha,
+        }
+
         for comando in comandos:
-            if comando == 'F':
-                self.mover_adelante()
-            elif comando == 'B':
-                self.retroceder()
-            elif comando == 'L':
-                self.girar_izquierda()
-            elif comando == 'R':
-                self.girar_derecha()
-                
+            accion = acciones.get(comando)
+            if accion:
+                accion()
