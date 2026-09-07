@@ -35,3 +35,10 @@ def test_rover_retrocede():
     rover = Rover (1, 0, 'N')
     rover.retroceder()
     assert rover.posicion() == (1, -1)
+
+def test_rover_ejecuta_cadena_comandos():
+    rover = Rover(1, 0, 'N')
+    rover.ejecutar_comandos("FFRFF")
+    assert rover.posicion() == (3, 2)
+    assert rover.orientacion() == 'E'
+    
