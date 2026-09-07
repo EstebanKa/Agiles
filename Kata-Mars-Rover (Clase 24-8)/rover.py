@@ -42,3 +42,15 @@ class Rover:
     #Paso 4: Retrocede una celda (requerimiento incorporado)
     def retroceder(self):
         self._mover(-1)
+
+    def ejecutar_comandos(self, comandos):
+        for comando in comandos:
+            if comando == 'F':
+                self.mover_adelante()
+            elif comando == 'B':
+                self.retroceder()
+            elif comando == 'L':
+                self.girar_izquierda()
+            elif comando == 'R':
+                self.girar_derecha()
+                
